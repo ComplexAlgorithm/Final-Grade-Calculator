@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+public class Homework10Solution {
+   
+   public static void main(String [] args) {
+      
+      int conceptTest1 = getScore("Enter score for Concept Test 1");
+      int programmingTest1 = getScore("Enter score for Programming Test 1");
+      int conceptTest2 = getScore("Enter score for Concept Test 2");
+      int programmingTest2 = getScore("Enter score for Programming Test 2");
+      int project1 = getScore("Enter score for Project 1");
+      int project2 = getScore("Enter score for Project 2");
+      int project3 = getScore("Enter score for Project 3");
+      int project4 = getScore("Enter score for Project 4");
+      int project5 = getScore("Enter score for Project 5");
+      int project6 = getScore("Enter score for Project 6");
+      int project7 = getScore("Enter score for Project 7");
+      int project8 = getScore("Enter score for Project 8");
+      int project9 = getScore("Enter score for Project 9");
+      int project10 = getScore("Enter score for Project 10");
+      int conceptFinal = getScore("Enter score for Concept Final");
+      int programmingFinal = getScore("Enter score for Programming Final");
+      
+      conceptTest1 = overrideScore(conceptTest1, conceptFinal);
+      programmingTest1 = overrideScore(programmingTest1, programmingFinal);
+      conceptTest2 = overrideScore(conceptTest2, conceptFinal);
+      programmingTest2 = overrideScore(programmingTest2, programmingFinal);
+      
+      double percentage = calculateFinalPercentage(conceptTest1,programmingTest1, 
+                                                   conceptTest2, programmingTest2, 
+                                                   project1, project2, project3, 
+                                                   project4, project5, project6,
+                                                   project7, project8, project9, project10,
+                                                   conceptFinal, programmingFinal);
+                                                 
+      char letter = determineLetterGrade(percentage);
+      
+      printInfo(percentage, letter);
+      
+   }
+   
+   public static int getScore(String message)  {
+      Scanner keyboard = new Scanner(System.in);
+      int score;
+      do {
+         System.out.println(message);
+         score = keyboard.nextInt();
+         if(score < 0 || score > 100) 
+            System.out.println("Invalid score");
+      }while(score < 0 || score > 100);
+      
+      return score;
+   
+   }
+   
+   public static int overrideScore(int test, int finalTest) {
+      if(finalTest > test)
+         test = finalTest;
+   
+      return test;
+   }
+   
+   public static double calculateFinalPercentage(int conceptTest1, int programmingTest1, 
+                                                 int conceptTest2, int programmingTest2, 
+                                                 int project1, int project2, int project3,
+                                                 int project4, int project5, int project6,
+                                                 int project7, int project8, int project9, int project10,
+                                                 int conceptFinal, int programmingFinal) {
+                                                 
+       double percentage = (double)((conceptTest1 * .15) + (conceptTest2 * .15) + 
+                          (programmingTest1 *.15) + (programmingTest2 *.15) +
+                          (project1 *.02) + (project2 *.02) + (project3 * .02) +
+                          (project4 *.02) + (project5 *.02) + (project6 * .02) + 
+                          (project7 *.02) + (project8 *.02) + (project9 * .02) + (project10 * .02) +
+                          (conceptFinal * .10) + (programmingFinal *.10));
+       
+       return percentage;
+ 
+   }
+   
+   public static char determineLetterGrade(double finalPercentage) {
+   
+     char letter;
+     if(finalPercentage >= 90)
+         letter = 'A';
+     else if(finalPercentage >= 80)
+         letter = 'B';
+     else if(finalPercentage >= 70)
+         letter = 'C';
+     else if(finalPercentage >= 1)
+         letter = 'D';
+     else
+         letter = 'F';
+   
+      return letter;
+   }
+   
+   public static void printInfo(double finalPercentage, char letterGrade) {
+   
+      System.out.println("The percentage is: " + finalPercentage);
+      System.out.println("The letter grade is: " + letterGrade);
+   }
+}
