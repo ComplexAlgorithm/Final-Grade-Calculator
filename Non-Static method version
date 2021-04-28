@@ -1,0 +1,117 @@
+import java.util.Scanner;
+
+public class Homework10NoStaticMethods {
+   
+   public static void main(String [] args) {
+      Scanner keyboard = new Scanner(System.in);
+      
+      int conceptTest1;
+      do {
+         System.out.println("Enter score for Concept Test 1");
+         conceptTest1 = keyboard.nextInt();
+         if(conceptTest1 < 0 || conceptTest1 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(conceptTest1 < 0 || conceptTest1 > 100);
+      
+      int programmingTest1;
+      do {
+         System.out.println("Enter score for Programming Test 1");
+         programmingTest1 = keyboard.nextInt();
+         if(programmingTest1 < 0 || programmingTest1 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(programmingTest1 < 0 || programmingTest1 > 100);
+       
+      int conceptTest2;
+      do {
+         System.out.println("Enter score for Concept Test 2");
+         conceptTest2 = keyboard.nextInt();
+         if(conceptTest2 < 0 || conceptTest2 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(conceptTest2 < 0 || conceptTest2 > 100);
+
+      int programmingTest2;
+      do {
+         System.out.println("Enter score for Programming Test 2");
+         programmingTest2 = keyboard.nextInt();
+         if(programmingTest2 < 0 || programmingTest2 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(programmingTest2 < 0 || programmingTest2 > 100);
+      
+      int project1;
+      do {
+         System.out.println("Enter score for Project 1");
+         project1 = keyboard.nextInt();
+         if(project1 < 0 || project1 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(project1 < 0 || project1 > 100);
+      
+      int project2;
+      do {
+         System.out.println("Enter score for Project 2");
+         project2 = keyboard.nextInt();
+         if(project2 < 0 || project2 > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(project2 < 0 || project2 > 100);
+
+      int conceptFinal;
+      do {
+         System.out.println("Enter score for Concept Final");
+         conceptFinal = keyboard.nextInt();
+         if(conceptFinal < 0 || conceptFinal > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(conceptFinal < 0 || conceptFinal > 100);
+      
+      int programmingFinal;
+      do {
+         System.out.println("Enter score for Programming Final");
+         programmingFinal = keyboard.nextInt();
+         if(programmingFinal < 0 || programmingFinal > 100) {
+            System.out.println("Invalid score");
+         }
+      }while(programmingFinal < 0 || programmingFinal > 100);
+      
+      if(conceptFinal > conceptTest1)
+         conceptTest1 = conceptFinal;
+      
+      if(conceptFinal > conceptTest2)
+         conceptTest2 = conceptFinal;
+      
+      if(programmingFinal > programmingTest1)
+         programmingTest1 = programmingFinal;
+         
+      if(programmingFinal > programmingTest2)
+         programmingTest2 = programmingFinal;
+      
+      double percentage = (double)((conceptTest1 * .10) + (conceptTest2 * .10) + 
+                          (programmingTest1 * .10) + (programmingTest2 * .10) +
+                          (project1 *.10) + (project2 * .10) + (conceptFinal * .20) +
+                          (programmingFinal * .20));
+     
+     char letter;
+     if(percentage >= 90)
+         letter = 'A';
+     else if(percentage >= 80)
+         letter = 'B';
+     else if(percentage >= 70)
+         letter = 'C';
+     else if(percentage >= 1)
+         letter = 'D';
+     else
+         letter = 'F';
+     
+     System.out.println("The percentage is: " + percentage);
+     System.out.println("The letter is: " + letter);
+      
+       
+
+
+   }
+   
+} 
